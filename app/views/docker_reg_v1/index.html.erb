@@ -1,0 +1,16 @@
+<h1>Docker Registry Browser</h1>
+<p>
+  <%= form_tag(id: "tag_list") do %>
+    <%= label_tag(:docker_image_path, "Search for:") %>
+    <%= text_field_tag(:docker_image_path) %>
+    <%= submit_tag("List Tags") %>
+  <% end %>
+</p>
+<p>
+  <% if @docker_image_path and not @docker_image_tags %>
+      No matching image found for <%= @docker_image_path %>
+  <% else %>
+    <%= "Registry: #{@registry_hostname}" %><br/><br/>
+    <%= @docker_image_tags %>
+  <% end %>
+</p>
