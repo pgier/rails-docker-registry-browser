@@ -1,24 +1,8 @@
-# README
+# Rails Docker Registry Browser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic rails app to browse a docker registry.
 
-Things you may want to cover:
+Set environment var "REGISTRY_HOST_PORT" to the location of your Docker registry. For example, "localhost:8080".
 
-* Ruby version
+Currently only works with a v1 registry.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
