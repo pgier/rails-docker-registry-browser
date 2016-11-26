@@ -1,0 +1,30 @@
+<h1>Docker Registry Browser</h1>
+<%= link_to("home", "/") %>
+<h2>Search for images by keyword</h2>
+<p>
+  <%= form_tag(id: "image_search") do %>
+    <%= label_tag(:search_term, "Search for:") %>
+    <%= text_field_tag(:search_term) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</p>
+<p>
+  <% if @search_term and not @image_results %>
+      No matching images found for <%= @search_term %> <br>
+      If search result is always empty, it's possible that search is disabled for the configured
+      registry.
+  <% elseif @image_results %>
+    <%= "Num of results: #{@num_results}" %><br/><br/>
+    <%= @image_results %>
+  <% end %>
+</p>
+<br/>
+<h2>Look up images by path</h2>
+<p>
+  The image path should be in the form of "namespace/image"
+  <%= form_tag(id: "tag_list") do %>
+      <%= label_tag(:image_path, "Image Path:") %>
+      <%= text_field_tag(:image_path) %>
+      <%= submit_tag("List Tags") %>
+  <% end %>
+</p>

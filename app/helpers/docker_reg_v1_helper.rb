@@ -1,2 +1,0 @@
-module DockerRegV1Helper
-end
