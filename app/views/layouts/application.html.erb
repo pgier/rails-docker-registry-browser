@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsDockerRegistryBrowser</title>
+    <title>Rails Docker Registry Browser</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <h1><%= link_to("Rails Docker Registry Browser", "/") %></h1>
     <%= yield %>
   </body>
 </html>

@@ -8,10 +8,5 @@ class ShowImageController < ApplicationController
   def show
     @image_id = params[:id]
     @image_info = DockerImage.image_info(@image_id)
-    if @image_info.nil?
-      @image_name = "Not Found"
-    else
-      @image_name = @image_info["Name"]
-    end
   end
 end
