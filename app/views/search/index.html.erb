@@ -12,7 +12,7 @@
       No matching images found for <%= @search_term %> <br>
       If search result is always empty, it's possible that search is disabled for the configured
       registry.
-  <% elseif @image_results %>
+  <% elsif @image_results %>
     <%= "Num of results: #{@num_results}" %><br/><br/>
     <%= @image_results %>
   <% end %>
