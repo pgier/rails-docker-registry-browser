@@ -8,5 +8,6 @@ class ShowImageController < ApplicationController
   def show
     @image_id = params[:id]
     @image_info = DockerImage.image_info(@image_id)
+    @image_ancestry = DockerImage.ancestry(@image_id)
   end
 end

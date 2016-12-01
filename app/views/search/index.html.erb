@@ -2,9 +2,9 @@
 <h2>Search for images by keyword</h2>
 <p>
   <%= form_tag(id: "image_search") do %>
-    <%= label_tag(:search_term, "Search for:") %>
-    <%= text_field_tag(:search_term) %>
-    <%= submit_tag("Search") %>
+      <%= label_tag(:search_term, "Search for:") %>
+      <%= text_field_tag(:search_term) %>
+      <%= submit_tag("Search") %>
   <% end %>
 </p>
 <p>
@@ -13,8 +13,8 @@
       If search result is always empty, it's possible that search is disabled for the configured
       registry.
   <% elsif @image_results %>
-    <%= "Num of results: #{@num_results}" %><br/><br/>
-    <%= @image_results %>
+      <%= "Num of results: #{@num_results}" %><br/><br/>
+      <%= @image_results %>
   <% end %>
 </p>
 <br/>

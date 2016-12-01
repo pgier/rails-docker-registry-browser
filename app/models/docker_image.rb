@@ -9,12 +9,12 @@ class DockerImage
     begin
       response = get("/search", query: {q: keyword, page: page, n: num})
       if (response and response.respond_to?("keys"))
-        @search_results = response
+        return response
       else
-        @search_results = nil
+        return nil
       end
     rescue HTTParty::Error, JSON::ParserError
-      @search_results = nil
+      return nil
     end
   end
 
@@ -22,25 +22,38 @@ class DockerImage
     begin
       response = get("/repositories/#{image_path}/tags")
       if (response and response.respond_to?("keys"))
-        @image_tags = response
+        return response
       else
-        @image_tags = nil
+        return nil
       end
     rescue HTTParty::Error, JSON::ParserError
-      @image_tags = nil
+      return nil
     end
   end
 
   def self.image_info(image_id)
     begin
-      response = get("/images/#{image_id}/json", :verify => false )
+      response = get("/images/#{image_id}/json", verify: false )
       if (response and response.respond_to?("keys"))
-        @image_info = response
+        return response
       else
-        @image_info = nil
+        return nil
       end
     rescue HTTParty::Error, JSON::ParserError
-      @image_info = nil
+      return nil
+    end
+  end
+
+  def self.ancestry(image_id)
+    begin
+      response = get("/images/#{image_id}/ancestry", verify: false)
+      if (response)
+        return response
+      else
+        return nil
+      end
+    rescue HTTParty::Error, JSON::ParserError
+      return nil
     end
   end
 end

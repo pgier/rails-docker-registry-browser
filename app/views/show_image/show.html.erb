@@ -1,7 +1,19 @@
 <h2>DockerImage: <%= @image_id %> </h2>
+<% if @image_ancestry %>
+    <h3>Ancestry</h3>
+    <p>
+    <ul>
+      <% @image_ancestry.each do |ancestor| %>
+          <li><%= link_to(ancestor, "/images/#{ancestor}") %></li>
+      <% end %>
+    </ul>
+    </p>
+<% end %>
 <% if @image_info %>
-  <p>Parent Image: <%= link_to(@image_info["parent"], "/images/#{@image_info["parent"]}") %></p>
-  <p><pre><%= pretty_json(@image_info) %></pre></p>
+    <h3>Image Info</h3>
+    <p>
+    <pre><%= pretty_json(@image_info) %></pre>
+    </p>
 <% else %>
-  <p>Image not found for ID: <%= @image_id %></p>
+    <p>Image not found for ID: <%= @image_id %></p>
 <% end %>
