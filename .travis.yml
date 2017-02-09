@@ -4,7 +4,7 @@ services:
   - docker
 
 before install:
-  - docker build .
+  - docker build -t pgier/rails-docker-registry-browser .
 
 script:
   - echo "Done"
