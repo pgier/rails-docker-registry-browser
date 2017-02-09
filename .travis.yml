@@ -6,3 +6,7 @@ services:
 before install:
   - docker build .
 
+script:
+  - echo "Done"
+
+
