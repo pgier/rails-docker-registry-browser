@@ -7,6 +7,7 @@ env:
 services:
 - docker
 script:
-- docker build -t ${DOCKER_IMAGE_NAME} .; echo "Tag: ${TRAVIS_TAG}"
+- docker build -t ${DOCKER_IMAGE_NAME} .
+- echo "Tag is ${TRAVIS_TAG}"
 after_success:
 - bash .travis.docker-push.sh
