@@ -8,7 +8,7 @@ services:
 - docker
 script:
 - docker build -t ${DOCKER_IMAGE_NAME} .
-- echo "Done"
+- echo "Tag: ${TRAVIS_TAG}"
 after_success:
 - if [ "$TRAVIS_TAG" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
