@@ -6,9 +6,8 @@ env:
   - secure: SCNY4XNUpbI0AbcNUzvYhk6+V+kWoU2fx1VevbmyC0jJnOJOW9ld+m976V7p1GRNEPHKOq8gzb6VMlOY2Pp2KMccQD+rPtI0nIC+OBa3SbfzBq7+pvNAsSgZs5W/Vtj144fyROUokcvHIj61xSLTDZsYH9eam05acp6iFFXU4kqjsfsGFAhQG0hbybaNRRouRPXIjSuTNg6ZOWijzhK3sbUcLSIMu/hPg/Eb9stH90LFei6MMsHYhkBVE0xpEg7sUQOzZOwcynPGXALnyD7/t7CjLew2uwrJ6RfX6OxnG40j79SK68O3qryXkvUe4MCibrNgQWcsRCmdT5BTEPAMmGzD5aFCXp9Np4oF3y4uDxYnJ+SAfMaJbWnAA4TtalOny/amkbHOO2mpnA5+kGJXWjMJ+ANBkZ1Qm+m0T9ExX85FHJQp2QGjS801Ost6OxvHW7a9hCDXBwmwNe5z9ea14b4aNfOrSUXVv9Mw2V7FDWdh5Vi1CthJRauQupzwNhsSeM/gDw1tuf6+gQrPZ2ldPnTU0gBz38SogUjkTlyOLgEsmYz+qxTTj99UEfjdvIMZWpx1kfT7vr+vmHSlUltZtItlUNtUtxdcQLiFLYNvW2d7BWbQa7xNjTA4FjbzLgEE9amdrNvUu+7B4rYUdySkCDc0pvMqmTavzIAbOGBN0QQ=
 services:
 - docker
-before_install:
-- docker build -t ${DOCKER_IMAGE_NAME} .
 script:
-- echo "Done"
+- docker build -t ${DOCKER_IMAGE_NAME} .
+  echo "Done"
 after_success:
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"; docker push ${DOCKER_IMAGE_NAME};
