@@ -10,6 +10,7 @@
 
   <body>
     <h1><%= link_to("Rails Docker Registry Browser", "/") %></h1>
+    <p><b>Repository:</b> <%=ENV["REGISTRY_HOST_PORT"]%></p>
     <%= yield %>
   </body>
 </html>
