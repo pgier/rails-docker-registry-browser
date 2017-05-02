@@ -8,8 +8,10 @@ class SearchController < ApplicationController
     end
   end
 
+  DOCKER_IMAGE_PATH_REGEX = /\w+\/\w+/
+
   def list_tags(docker_image_path)
-    if docker_image_path.nil? || !/\w+\/\w+/.match(docker_image_path)
+    if !DOCKER_IMAGE_PATH_REGEX.match(docker_image_path)
       @image_list_error_message = "Invalid image path "\
           "\'#{docker_image_path}\', please enter path in"\
           " the form: namespace/image_name"
