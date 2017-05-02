@@ -21,9 +21,12 @@
 <h2>Look up images by path</h2>
 <p>
   The image path should be in the form of "namespace/image"
-  <%= form_tag(id: "tag_list") do %>
+  <%= form_tag(id: "list_tags") do %>
       <%= label_tag(:image_path, "Image Path:") %>
       <%= text_field_tag(:image_path) %>
       <%= submit_tag("List Tags") %>
+  <% end %>
+  <% unless @image_list_error_message.nil? %>
+      <br/><%= "Error: #{@image_list_error_message}" %><br/>
   <% end %>
 </p>

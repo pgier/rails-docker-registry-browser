@@ -1,5 +1,5 @@
 
-class DockerImage
+class DockerImageV1
   include HTTParty
   registry_hostport = ENV["REGISTRY_HOST_PORT"]
   base_uri "http://#{registry_hostport}/v1"
